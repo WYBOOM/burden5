@@ -1,5 +1,5 @@
 # burden5
->fdsfdsffsdf
+>使用vue开发的个人网站项目（wordpress提供REST API）
 
 ## Project setup
 ```
