@@ -1,12 +1,17 @@
 # burden5
 >使用vue开发的个人网站项目（wordpress提供REST API）
 
-## Project setup
+## 项目复制
+```
+git clone http://192.168.36.155:9999/PD.5/CMDB.git
+```
+
+## 项目依赖安装
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 项目启动
 ```
 npm run serve
 ```
