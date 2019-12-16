@@ -3,7 +3,7 @@
 
 ### 克隆
 ```
-git clone http://192.168.36.155:9999/PD.5/CMDB.git
+git clone git clone git@github.com:WYBOOM/burden5.git
 ```
 
 ### 项目依赖安装
