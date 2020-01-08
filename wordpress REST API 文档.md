@@ -1,3 +1,3 @@
 # wordpress REST API 文档.md
 
-<img src="http://static.runoob.com/images/runoob-logo.png" width="50%">
+![alt 属性文本](http://static.runoob.com/images/runoob-logo.png)
