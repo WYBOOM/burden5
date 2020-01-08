@@ -1,11 +1,17 @@
 # burden5
+>使用vue开发的个人网站项目（wordpress提供REST API）
 
-## Project setup
+### 克隆
+```
+git clone git clone git@github.com:WYBOOM/burden5.git
+```
+
+### 项目依赖安装
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 项目启动
 ```
 npm run serve
 ```
@@ -24,6 +30,10 @@ npm run test
 ```
 npm run lint
 ```
+### wordpress REST API 文档
+
+See [wordpress REST API 文档](https://github.com/WYBOOM/burden5/blob/master/wordpress%20REST%20API%20%E6%96%87%E6%A1%A3.md).
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
