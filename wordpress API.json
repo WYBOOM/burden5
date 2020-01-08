@@ -1,0 +1,3445 @@
+{
+  "name": "",
+  "description": "又一个WordPress站点",
+  "url": "http://106.14.124.157/wordpress",
+  "home": "http://106.14.124.157/wordpress",
+  "gmt_offset": 8,
+  "timezone_string": "Asia/Shanghai",
+  "namespaces": [
+    "oembed/1.0",
+    "jwt-auth/v1",
+    "wp/v2"
+  ],
+  "authentication": [],
+  "routes": {
+    "/": {
+      "namespace": "",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/"
+      }
+    },
+    "/oembed/1.0": {
+      "namespace": "oembed/1.0",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "namespace": {
+              "required": false,
+              "default": "oembed/1.0"
+            },
+            "context": {
+              "required": false,
+              "default": "view"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/oembed/1.0"
+      }
+    },
+    "/oembed/1.0/embed": {
+      "namespace": "oembed/1.0",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "url": {
+              "required": true
+            },
+            "format": {
+              "required": false,
+              "default": "json"
+            },
+            "maxwidth": {
+              "required": false,
+              "default": 600
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/oembed/1.0/embed"
+      }
+    },
+    "/oembed/1.0/proxy": {
+      "namespace": "oembed/1.0",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "url": {
+              "required": true,
+              "description": "需要获取oEmbed数据的链接。",
+              "type": "string"
+            },
+            "format": {
+              "required": false,
+              "default": "json",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "description": "使用的oEmbed格式。",
+              "type": "string"
+            },
+            "maxwidth": {
+              "required": false,
+              "default": 600,
+              "description": "嵌入的元素的最大宽度（像素）。",
+              "type": "integer"
+            },
+            "maxheight": {
+              "required": false,
+              "description": "嵌入的元素的最大高度（像素）。",
+              "type": "integer"
+            },
+            "discover": {
+              "required": false,
+              "default": true,
+              "description": "对不在白名单内的提供者是否进行oEmbed发现请求。",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/oembed/1.0/proxy"
+      }
+    },
+    "/jwt-auth/v1": {
+      "namespace": "jwt-auth/v1",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "namespace": {
+              "required": false,
+              "default": "jwt-auth/v1"
+            },
+            "context": {
+              "required": false,
+              "default": "view"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/jwt-auth/v1"
+      }
+    },
+    "/jwt-auth/v1/token": {
+      "namespace": "jwt-auth/v1",
+      "methods": [
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": []
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/jwt-auth/v1/token"
+      }
+    },
+    "/jwt-auth/v1/token/validate": {
+      "namespace": "jwt-auth/v1",
+      "methods": [
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": []
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/jwt-auth/v1/token/validate"
+      }
+    },
+    "/wp/v2": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "namespace": {
+              "required": false,
+              "default": "wp/v2"
+            },
+            "context": {
+              "required": false,
+              "default": "view"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2"
+      }
+    },
+    "/wp/v2/posts": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "page": {
+              "required": false,
+              "default": 1,
+              "description": "集合的当前页。",
+              "type": "integer"
+            },
+            "per_page": {
+              "required": false,
+              "default": 10,
+              "description": "结果集包含的最大项目数量。",
+              "type": "integer"
+            },
+            "search": {
+              "required": false,
+              "description": "将结果限制为匹配字符串的。",
+              "type": "string"
+            },
+            "after": {
+              "required": false,
+              "description": "将回应限制在一个给定的ISO8601兼容日期之后发布的文章。",
+              "type": "string"
+            },
+            "author": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为指定给特定作者的文章。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "author_exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定给特定作者的文章。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "before": {
+              "required": false,
+              "description": "将回应限制在一个给定的ISO8601兼容日期之前发布的文章。",
+              "type": "string"
+            },
+            "exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "include": {
+              "required": false,
+              "default": [],
+              "description": "将结果集限制到指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "offset": {
+              "required": false,
+              "description": "将结果集移位特定数量。",
+              "type": "integer"
+            },
+            "order": {
+              "required": false,
+              "default": "desc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "设置排序字段升序或降序。",
+              "type": "string"
+            },
+            "orderby": {
+              "required": false,
+              "default": "date",
+              "enum": [
+                "author",
+                "date",
+                "id",
+                "include",
+                "modified",
+                "parent",
+                "relevance",
+                "slug",
+                "title"
+              ],
+              "description": "按对象属性排序集合。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "限制结果集为有一个或多个特定别名的文章。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "status": {
+              "required": false,
+              "default": "publish",
+              "description": "限制结果集为有一个或多个状态的文章。",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "publish",
+                  "future",
+                  "draft",
+                  "pending",
+                  "private",
+                  "trash",
+                  "auto-draft",
+                  "inherit",
+                  "any"
+                ],
+                "type": "string"
+              }
+            },
+            "categories": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为在categories分类法中指定了特定项目的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "categories_exclude": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为在categories分类法中没有指定特定项目的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "tags": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为在tags分类法中指定了特定项目的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "tags_exclude": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为在tags分类法中没有指定特定项目的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "sticky": {
+              "required": false,
+              "description": "限制结果集为置顶项目。",
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "date": {
+              "required": false,
+              "description": "对象的发布时间，站点时区。",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "对象的发布时间，GMT。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "对象类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "status": {
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ],
+              "description": "对象的命名状态。",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "用来保护内容和摘要的密码。",
+              "type": "string"
+            },
+            "title": {
+              "required": false,
+              "description": "对象的标题。",
+              "type": "object"
+            },
+            "content": {
+              "required": false,
+              "description": "对象的内容。",
+              "type": "object"
+            },
+            "author": {
+              "required": false,
+              "description": "对象作者的ID。",
+              "type": "integer"
+            },
+            "excerpt": {
+              "required": false,
+              "description": "对象的摘要。",
+              "type": "object"
+            },
+            "featured_media": {
+              "required": false,
+              "description": "对象的特色媒体ID。",
+              "type": "integer"
+            },
+            "comment_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否开放评论。",
+              "type": "string"
+            },
+            "ping_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否接受ping。",
+              "type": "string"
+            },
+            "format": {
+              "required": false,
+              "enum": [
+                "standard",
+                "aside",
+                "chat",
+                "gallery",
+                "link",
+                "image",
+                "quote",
+                "status",
+                "video",
+                "audio"
+              ],
+              "description": "对象的格式。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            },
+            "sticky": {
+              "required": false,
+              "description": "对象是否是置顶的。",
+              "type": "boolean"
+            },
+            "template": {
+              "required": false,
+              "enum": [
+                ""
+              ],
+              "description": "用来显示此对象的主题文件。",
+              "type": "string"
+            },
+            "categories": {
+              "required": false,
+              "description": "此对象在category分类法中指定的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "tags": {
+              "required": false,
+              "description": "此对象在post_tag分类法中指定的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/posts"
+      }
+    },
+    "/wp/v2/posts/(?P<id>[\\d]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "该文章的密码，如文章受密码保护。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "date": {
+              "required": false,
+              "description": "对象的发布时间，站点时区。",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "对象的发布时间，GMT。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "对象类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "status": {
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ],
+              "description": "对象的命名状态。",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "用来保护内容和摘要的密码。",
+              "type": "string"
+            },
+            "title": {
+              "required": false,
+              "description": "对象的标题。",
+              "type": "object"
+            },
+            "content": {
+              "required": false,
+              "description": "对象的内容。",
+              "type": "object"
+            },
+            "author": {
+              "required": false,
+              "description": "对象作者的ID。",
+              "type": "integer"
+            },
+            "excerpt": {
+              "required": false,
+              "description": "对象的摘要。",
+              "type": "object"
+            },
+            "featured_media": {
+              "required": false,
+              "description": "对象的特色媒体ID。",
+              "type": "integer"
+            },
+            "comment_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否开放评论。",
+              "type": "string"
+            },
+            "ping_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否接受ping。",
+              "type": "string"
+            },
+            "format": {
+              "required": false,
+              "enum": [
+                "standard",
+                "aside",
+                "chat",
+                "gallery",
+                "link",
+                "image",
+                "quote",
+                "status",
+                "video",
+                "audio"
+              ],
+              "description": "对象的格式。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            },
+            "sticky": {
+              "required": false,
+              "description": "对象是否是置顶的。",
+              "type": "boolean"
+            },
+            "template": {
+              "required": false,
+              "enum": [
+                ""
+              ],
+              "description": "用来显示此对象的主题文件。",
+              "type": "string"
+            },
+            "categories": {
+              "required": false,
+              "description": "此对象在category分类法中指定的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "tags": {
+              "required": false,
+              "description": "此对象在post_tag分类法中指定的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "是否绕过回收站并强行删除。",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/posts/(?P<parent>[\\d]+)/revisions": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "parent": {
+              "required": false,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/posts/(?P<parent>[\\d]+)/revisions/(?P<id>[\\d]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "parent": {
+              "required": false,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "parent": {
+              "required": false,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "要求为true，因为修订版本不能被移动到回收站。",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/pages": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "page": {
+              "required": false,
+              "default": 1,
+              "description": "集合的当前页。",
+              "type": "integer"
+            },
+            "per_page": {
+              "required": false,
+              "default": 10,
+              "description": "结果集包含的最大项目数量。",
+              "type": "integer"
+            },
+            "search": {
+              "required": false,
+              "description": "将结果限制为匹配字符串的。",
+              "type": "string"
+            },
+            "after": {
+              "required": false,
+              "description": "将回应限制在一个给定的ISO8601兼容日期之后发布的文章。",
+              "type": "string"
+            },
+            "author": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为指定给特定作者的文章。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "author_exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定给特定作者的文章。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "before": {
+              "required": false,
+              "description": "将回应限制在一个给定的ISO8601兼容日期之前发布的文章。",
+              "type": "string"
+            },
+            "exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "include": {
+              "required": false,
+              "default": [],
+              "description": "将结果集限制到指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "menu_order": {
+              "required": false,
+              "description": "限制结果集为有特定menu_order的文章。",
+              "type": "integer"
+            },
+            "offset": {
+              "required": false,
+              "description": "将结果集移位特定数量。",
+              "type": "integer"
+            },
+            "order": {
+              "required": false,
+              "default": "desc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "设置排序字段升序或降序。",
+              "type": "string"
+            },
+            "orderby": {
+              "required": false,
+              "default": "date",
+              "enum": [
+                "author",
+                "date",
+                "id",
+                "include",
+                "modified",
+                "parent",
+                "relevance",
+                "slug",
+                "title",
+                "menu_order"
+              ],
+              "description": "按对象属性排序集合。",
+              "type": "string"
+            },
+            "parent": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为一些特定父ID的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "parent_exclude": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为没有特定父ID的文章。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "slug": {
+              "required": false,
+              "description": "限制结果集为有一个或多个特定别名的文章。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "status": {
+              "required": false,
+              "default": "publish",
+              "description": "限制结果集为有一个或多个状态的文章。",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "publish",
+                  "future",
+                  "draft",
+                  "pending",
+                  "private",
+                  "trash",
+                  "auto-draft",
+                  "inherit",
+                  "any"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "date": {
+              "required": false,
+              "description": "对象的发布时间，站点时区。",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "对象的发布时间，GMT。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "对象类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "status": {
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ],
+              "description": "对象的命名状态。",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "用来保护内容和摘要的密码。",
+              "type": "string"
+            },
+            "parent": {
+              "required": false,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "title": {
+              "required": false,
+              "description": "对象的标题。",
+              "type": "object"
+            },
+            "content": {
+              "required": false,
+              "description": "对象的内容。",
+              "type": "object"
+            },
+            "author": {
+              "required": false,
+              "description": "对象作者的ID。",
+              "type": "integer"
+            },
+            "excerpt": {
+              "required": false,
+              "description": "对象的摘要。",
+              "type": "object"
+            },
+            "featured_media": {
+              "required": false,
+              "description": "对象的特色媒体ID。",
+              "type": "integer"
+            },
+            "comment_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否开放评论。",
+              "type": "string"
+            },
+            "ping_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否接受ping。",
+              "type": "string"
+            },
+            "menu_order": {
+              "required": false,
+              "description": "对象相对于同类型其他对象的排序。",
+              "type": "integer"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            },
+            "template": {
+              "required": false,
+              "enum": [
+                ""
+              ],
+              "description": "用来显示此对象的主题文件。",
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/pages"
+      }
+    },
+    "/wp/v2/pages/(?P<id>[\\d]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "该文章的密码，如文章受密码保护。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "date": {
+              "required": false,
+              "description": "对象的发布时间，站点时区。",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "对象的发布时间，GMT。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "对象类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "status": {
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ],
+              "description": "对象的命名状态。",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "用来保护内容和摘要的密码。",
+              "type": "string"
+            },
+            "parent": {
+              "required": false,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "title": {
+              "required": false,
+              "description": "对象的标题。",
+              "type": "object"
+            },
+            "content": {
+              "required": false,
+              "description": "对象的内容。",
+              "type": "object"
+            },
+            "author": {
+              "required": false,
+              "description": "对象作者的ID。",
+              "type": "integer"
+            },
+            "excerpt": {
+              "required": false,
+              "description": "对象的摘要。",
+              "type": "object"
+            },
+            "featured_media": {
+              "required": false,
+              "description": "对象的特色媒体ID。",
+              "type": "integer"
+            },
+            "comment_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否开放评论。",
+              "type": "string"
+            },
+            "ping_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否接受ping。",
+              "type": "string"
+            },
+            "menu_order": {
+              "required": false,
+              "description": "对象相对于同类型其他对象的排序。",
+              "type": "integer"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            },
+            "template": {
+              "required": false,
+              "enum": [
+                ""
+              ],
+              "description": "用来显示此对象的主题文件。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "是否绕过回收站并强行删除。",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/pages/(?P<parent>[\\d]+)/revisions": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "parent": {
+              "required": false,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/pages/(?P<parent>[\\d]+)/revisions/(?P<id>[\\d]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "parent": {
+              "required": false,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "parent": {
+              "required": false,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "要求为true，因为修订版本不能被移动到回收站。",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/media": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "page": {
+              "required": false,
+              "default": 1,
+              "description": "集合的当前页。",
+              "type": "integer"
+            },
+            "per_page": {
+              "required": false,
+              "default": 10,
+              "description": "结果集包含的最大项目数量。",
+              "type": "integer"
+            },
+            "search": {
+              "required": false,
+              "description": "将结果限制为匹配字符串的。",
+              "type": "string"
+            },
+            "after": {
+              "required": false,
+              "description": "将回应限制在一个给定的ISO8601兼容日期之后发布的文章。",
+              "type": "string"
+            },
+            "author": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为指定给特定作者的文章。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "author_exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定给特定作者的文章。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "before": {
+              "required": false,
+              "description": "将回应限制在一个给定的ISO8601兼容日期之前发布的文章。",
+              "type": "string"
+            },
+            "exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "include": {
+              "required": false,
+              "default": [],
+              "description": "将结果集限制到指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "offset": {
+              "required": false,
+              "description": "将结果集移位特定数量。",
+              "type": "integer"
+            },
+            "order": {
+              "required": false,
+              "default": "desc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "设置排序字段升序或降序。",
+              "type": "string"
+            },
+            "orderby": {
+              "required": false,
+              "default": "date",
+              "enum": [
+                "author",
+                "date",
+                "id",
+                "include",
+                "modified",
+                "parent",
+                "relevance",
+                "slug",
+                "title"
+              ],
+              "description": "按对象属性排序集合。",
+              "type": "string"
+            },
+            "parent": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为一些特定父ID的项目。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "parent_exclude": {
+              "required": false,
+              "default": [],
+              "description": "限制结果集为没有特定父ID的文章。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "slug": {
+              "required": false,
+              "description": "限制结果集为有一个或多个特定别名的文章。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "status": {
+              "required": false,
+              "default": "inherit",
+              "description": "限制结果集为有一个或多个状态的文章。",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "inherit",
+                  "private",
+                  "trash"
+                ],
+                "type": "string"
+              }
+            },
+            "media_type": {
+              "required": false,
+              "enum": [
+                "image",
+                "video",
+                "text",
+                "application",
+                "audio"
+              ],
+              "description": "将结果集限制到某一媒体类型的附件。",
+              "type": "string"
+            },
+            "mime_type": {
+              "required": false,
+              "description": "将结果集限制到某一MIME类型的附件。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "date": {
+              "required": false,
+              "description": "对象的发布时间，站点时区。",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "对象的发布时间，GMT。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "对象类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "status": {
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ],
+              "description": "对象的命名状态。",
+              "type": "string"
+            },
+            "title": {
+              "required": false,
+              "description": "对象的标题。",
+              "type": "object"
+            },
+            "author": {
+              "required": false,
+              "description": "对象作者的ID。",
+              "type": "integer"
+            },
+            "comment_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否开放评论。",
+              "type": "string"
+            },
+            "ping_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否接受ping。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            },
+            "template": {
+              "required": false,
+              "enum": [
+                ""
+              ],
+              "description": "用来显示此对象的主题文件。",
+              "type": "string"
+            },
+            "alt_text": {
+              "required": false,
+              "description": "在附件未能显示时显示的替换文本。",
+              "type": "string"
+            },
+            "caption": {
+              "required": false,
+              "description": "附件说明。",
+              "type": "object"
+            },
+            "description": {
+              "required": false,
+              "description": "附件的描述。",
+              "type": "object"
+            },
+            "post": {
+              "required": false,
+              "description": "附件所属文章的ID。",
+              "type": "integer"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/media"
+      }
+    },
+    "/wp/v2/media/(?P<id>[\\d]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "date": {
+              "required": false,
+              "description": "对象的发布时间，站点时区。",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "对象的发布时间，GMT。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "对象类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "status": {
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ],
+              "description": "对象的命名状态。",
+              "type": "string"
+            },
+            "title": {
+              "required": false,
+              "description": "对象的标题。",
+              "type": "object"
+            },
+            "author": {
+              "required": false,
+              "description": "对象作者的ID。",
+              "type": "integer"
+            },
+            "comment_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否开放评论。",
+              "type": "string"
+            },
+            "ping_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "对象是否接受ping。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            },
+            "template": {
+              "required": false,
+              "enum": [
+                ""
+              ],
+              "description": "用来显示此对象的主题文件。",
+              "type": "string"
+            },
+            "alt_text": {
+              "required": false,
+              "description": "在附件未能显示时显示的替换文本。",
+              "type": "string"
+            },
+            "caption": {
+              "required": false,
+              "description": "附件说明。",
+              "type": "object"
+            },
+            "description": {
+              "required": false,
+              "description": "附件的描述。",
+              "type": "object"
+            },
+            "post": {
+              "required": false,
+              "description": "附件所属文章的ID。",
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "是否绕过回收站并强行删除。",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/types": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/types"
+      }
+    },
+    "/wp/v2/types/(?P<type>[\\w-]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "type": {
+              "required": false,
+              "description": "文章类别的英数字标识符。",
+              "type": "string"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/statuses": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/statuses"
+      }
+    },
+    "/wp/v2/statuses/(?P<status>[\\w-]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "status": {
+              "required": false,
+              "description": "状态的英数字标识符。",
+              "type": "string"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/taxonomies": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "type": {
+              "required": false,
+              "description": "限制结果为关联到特定文章类型的分类法。",
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/taxonomies"
+      }
+    },
+    "/wp/v2/taxonomies/(?P<taxonomy>[\\w-]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "taxonomy": {
+              "required": false,
+              "description": "分类法的英数字标识符。",
+              "type": "string"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/categories": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "page": {
+              "required": false,
+              "default": 1,
+              "description": "集合的当前页。",
+              "type": "integer"
+            },
+            "per_page": {
+              "required": false,
+              "default": 10,
+              "description": "结果集包含的最大项目数量。",
+              "type": "integer"
+            },
+            "search": {
+              "required": false,
+              "description": "将结果限制为匹配字符串的。",
+              "type": "string"
+            },
+            "exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "include": {
+              "required": false,
+              "default": [],
+              "description": "将结果集限制到指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "order": {
+              "required": false,
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "设置排序字段升序或降序。",
+              "type": "string"
+            },
+            "orderby": {
+              "required": false,
+              "default": "name",
+              "enum": [
+                "id",
+                "include",
+                "name",
+                "slug",
+                "term_group",
+                "description",
+                "count"
+              ],
+              "description": "按项目属性排序集合。",
+              "type": "string"
+            },
+            "hide_empty": {
+              "required": false,
+              "default": false,
+              "description": "是否隐藏未被指定到任何文章的项目。",
+              "type": "boolean"
+            },
+            "parent": {
+              "required": false,
+              "description": "限制结果集为指定给特定父项目的项目。",
+              "type": "integer"
+            },
+            "post": {
+              "required": false,
+              "description": "限制结果集为指定给特定文章的项目。",
+              "type": "integer"
+            },
+            "slug": {
+              "required": false,
+              "description": "通过设置一个或多个别名来查询指定标签。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "description": {
+              "required": false,
+              "description": "项目的HTML描述。",
+              "type": "string"
+            },
+            "name": {
+              "required": true,
+              "description": "项目的HTML标题。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "项目类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "parent": {
+              "required": false,
+              "description": "父项目ID。",
+              "type": "integer"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/categories"
+      }
+    },
+    "/wp/v2/categories/(?P<id>[\\d]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "项目的唯一标识符。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "项目的唯一标识符。",
+              "type": "integer"
+            },
+            "description": {
+              "required": false,
+              "description": "项目的HTML描述。",
+              "type": "string"
+            },
+            "name": {
+              "required": false,
+              "description": "项目的HTML标题。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "项目类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "parent": {
+              "required": false,
+              "description": "父项目ID。",
+              "type": "integer"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "项目的唯一标识符。",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "要求为true，因为项目不能被移动到回收站。",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/tags": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "page": {
+              "required": false,
+              "default": 1,
+              "description": "集合的当前页。",
+              "type": "integer"
+            },
+            "per_page": {
+              "required": false,
+              "default": 10,
+              "description": "结果集包含的最大项目数量。",
+              "type": "integer"
+            },
+            "search": {
+              "required": false,
+              "description": "将结果限制为匹配字符串的。",
+              "type": "string"
+            },
+            "exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "include": {
+              "required": false,
+              "default": [],
+              "description": "将结果集限制到指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "offset": {
+              "required": false,
+              "description": "将结果集移位特定数量。",
+              "type": "integer"
+            },
+            "order": {
+              "required": false,
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "设置排序字段升序或降序。",
+              "type": "string"
+            },
+            "orderby": {
+              "required": false,
+              "default": "name",
+              "enum": [
+                "id",
+                "include",
+                "name",
+                "slug",
+                "term_group",
+                "description",
+                "count"
+              ],
+              "description": "按项目属性排序集合。",
+              "type": "string"
+            },
+            "hide_empty": {
+              "required": false,
+              "default": false,
+              "description": "是否隐藏未被指定到任何文章的项目。",
+              "type": "boolean"
+            },
+            "post": {
+              "required": false,
+              "description": "限制结果集为指定给特定文章的项目。",
+              "type": "integer"
+            },
+            "slug": {
+              "required": false,
+              "description": "通过设置一个或多个别名来查询指定标签。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "description": {
+              "required": false,
+              "description": "项目的HTML描述。",
+              "type": "string"
+            },
+            "name": {
+              "required": true,
+              "description": "项目的HTML标题。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "项目类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/tags"
+      }
+    },
+    "/wp/v2/tags/(?P<id>[\\d]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "项目的唯一标识符。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "项目的唯一标识符。",
+              "type": "integer"
+            },
+            "description": {
+              "required": false,
+              "description": "项目的HTML描述。",
+              "type": "string"
+            },
+            "name": {
+              "required": false,
+              "description": "项目的HTML标题。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "项目类别而言的英数字标识符。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "项目的唯一标识符。",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "要求为true，因为项目不能被移动到回收站。",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/users": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "page": {
+              "required": false,
+              "default": 1,
+              "description": "集合的当前页。",
+              "type": "integer"
+            },
+            "per_page": {
+              "required": false,
+              "default": 10,
+              "description": "结果集包含的最大项目数量。",
+              "type": "integer"
+            },
+            "search": {
+              "required": false,
+              "description": "将结果限制为匹配字符串的。",
+              "type": "string"
+            },
+            "exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "include": {
+              "required": false,
+              "default": [],
+              "description": "将结果集限制到指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "offset": {
+              "required": false,
+              "description": "将结果集移位特定数量。",
+              "type": "integer"
+            },
+            "order": {
+              "required": false,
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "设置排序字段升序或降序。",
+              "type": "string"
+            },
+            "orderby": {
+              "required": false,
+              "default": "name",
+              "enum": [
+                "id",
+                "include",
+                "name",
+                "registered_date",
+                "slug",
+                "email",
+                "url"
+              ],
+              "description": "按对象属性排序集合。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "通过一个或多个别名来筛选用户。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "roles": {
+              "required": false,
+              "description": "限制结果集为匹配至少一个角色的用户，接受csv列表或单个角色。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "username": {
+              "required": true,
+              "description": "用户的登录名。",
+              "type": "string"
+            },
+            "name": {
+              "required": false,
+              "description": "用户的显示名。",
+              "type": "string"
+            },
+            "first_name": {
+              "required": false,
+              "description": "用户的名。",
+              "type": "string"
+            },
+            "last_name": {
+              "required": false,
+              "description": "用户的姓。",
+              "type": "string"
+            },
+            "email": {
+              "required": true,
+              "description": "用户的电子邮件地址。",
+              "type": "string"
+            },
+            "url": {
+              "required": false,
+              "description": "用户的URL。",
+              "type": "string"
+            },
+            "description": {
+              "required": false,
+              "description": "用户的描述。",
+              "type": "string"
+            },
+            "locale": {
+              "required": false,
+              "enum": [
+                "",
+                "en_US",
+                "zh_CN"
+              ],
+              "description": "用户的语言环境。",
+              "type": "string"
+            },
+            "nickname": {
+              "required": false,
+              "description": "用户的昵称。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "用户的英数字标识符。",
+              "type": "string"
+            },
+            "roles": {
+              "required": false,
+              "description": "用户被赋予的角色。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "password": {
+              "required": true,
+              "description": "用户的密码（从不被包含）。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/users"
+      }
+    },
+    "/wp/v2/users/(?P<id>[\\d]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "用户的唯一标识符。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "用户的唯一标识符。",
+              "type": "integer"
+            },
+            "username": {
+              "required": false,
+              "description": "用户的登录名。",
+              "type": "string"
+            },
+            "name": {
+              "required": false,
+              "description": "用户的显示名。",
+              "type": "string"
+            },
+            "first_name": {
+              "required": false,
+              "description": "用户的名。",
+              "type": "string"
+            },
+            "last_name": {
+              "required": false,
+              "description": "用户的姓。",
+              "type": "string"
+            },
+            "email": {
+              "required": false,
+              "description": "用户的电子邮件地址。",
+              "type": "string"
+            },
+            "url": {
+              "required": false,
+              "description": "用户的URL。",
+              "type": "string"
+            },
+            "description": {
+              "required": false,
+              "description": "用户的描述。",
+              "type": "string"
+            },
+            "locale": {
+              "required": false,
+              "enum": [
+                "",
+                "en_US",
+                "zh_CN"
+              ],
+              "description": "用户的语言环境。",
+              "type": "string"
+            },
+            "nickname": {
+              "required": false,
+              "description": "用户的昵称。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "用户的英数字标识符。",
+              "type": "string"
+            },
+            "roles": {
+              "required": false,
+              "description": "用户被赋予的角色。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "password": {
+              "required": false,
+              "description": "用户的密码（从不被包含）。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "用户的唯一标识符。",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "要求为true，因为用户不能被移动到回收站。",
+              "type": "boolean"
+            },
+            "reassign": {
+              "required": true,
+              "description": "将被删除用户的文章和链接重新指定到此用户ID。",
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/users/me": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "username": {
+              "required": false,
+              "description": "用户的登录名。",
+              "type": "string"
+            },
+            "name": {
+              "required": false,
+              "description": "用户的显示名。",
+              "type": "string"
+            },
+            "first_name": {
+              "required": false,
+              "description": "用户的名。",
+              "type": "string"
+            },
+            "last_name": {
+              "required": false,
+              "description": "用户的姓。",
+              "type": "string"
+            },
+            "email": {
+              "required": false,
+              "description": "用户的电子邮件地址。",
+              "type": "string"
+            },
+            "url": {
+              "required": false,
+              "description": "用户的URL。",
+              "type": "string"
+            },
+            "description": {
+              "required": false,
+              "description": "用户的描述。",
+              "type": "string"
+            },
+            "locale": {
+              "required": false,
+              "enum": [
+                "",
+                "en_US",
+                "zh_CN"
+              ],
+              "description": "用户的语言环境。",
+              "type": "string"
+            },
+            "nickname": {
+              "required": false,
+              "description": "用户的昵称。",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "用户的英数字标识符。",
+              "type": "string"
+            },
+            "roles": {
+              "required": false,
+              "description": "用户被赋予的角色。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "password": {
+              "required": false,
+              "description": "用户的密码（从不被包含）。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "要求为true，因为用户不能被移动到回收站。",
+              "type": "boolean"
+            },
+            "reassign": {
+              "required": true,
+              "description": "将被删除用户的文章和链接重新指定到此用户ID。",
+              "type": "integer"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/users/me"
+      }
+    },
+    "/wp/v2/comments": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "page": {
+              "required": false,
+              "default": 1,
+              "description": "集合的当前页。",
+              "type": "integer"
+            },
+            "per_page": {
+              "required": false,
+              "default": 10,
+              "description": "结果集包含的最大项目数量。",
+              "type": "integer"
+            },
+            "search": {
+              "required": false,
+              "description": "将结果限制为匹配字符串的。",
+              "type": "string"
+            },
+            "after": {
+              "required": false,
+              "description": "将回应限制在一个给定的ISO8601兼容日期之后发布的评论。",
+              "type": "string"
+            },
+            "author": {
+              "required": false,
+              "description": "将结果集限制在指定给特定用户ID的评论，需要授权。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "author_exclude": {
+              "required": false,
+              "description": "确保结果集排除指定给特定用户ID的评论，需要授权。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "author_email": {
+              "required": false,
+              "description": "将结果集限制为指定作者电子邮件地址，需要授权。",
+              "type": "string"
+            },
+            "before": {
+              "required": false,
+              "description": "将回应限制在一个给定的ISO8601兼容日期之前发布的评论。",
+              "type": "string"
+            },
+            "exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "include": {
+              "required": false,
+              "default": [],
+              "description": "将结果集限制到指定ID。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "offset": {
+              "required": false,
+              "description": "将结果集移位特定数量。",
+              "type": "integer"
+            },
+            "order": {
+              "required": false,
+              "default": "desc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "设置排序字段升序或降序。",
+              "type": "string"
+            },
+            "orderby": {
+              "required": false,
+              "default": "date_gmt",
+              "enum": [
+                "date",
+                "date_gmt",
+                "id",
+                "include",
+                "post",
+                "parent",
+                "type"
+              ],
+              "description": "按对象属性排序集合。",
+              "type": "string"
+            },
+            "parent": {
+              "required": false,
+              "default": [],
+              "description": "将结果集限制为指定父ID的评论。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "parent_exclude": {
+              "required": false,
+              "default": [],
+              "description": "确保结果集排除指定父ID的评论。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "post": {
+              "required": false,
+              "default": [],
+              "description": "将结果集限制为关联到指定文章ID的评论。",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "status": {
+              "required": false,
+              "default": "approve",
+              "description": "将结果集限制为设置特定状态的评论，需要授权。",
+              "type": "string"
+            },
+            "type": {
+              "required": false,
+              "default": "comment",
+              "description": "将结果集限制为设置特定类型的评论，需要授权。",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "该文章的密码，如文章受密码保护。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "author": {
+              "required": false,
+              "description": "用户对象的ID，如果作者是用户。",
+              "type": "integer"
+            },
+            "author_email": {
+              "required": false,
+              "description": "对象作者的电子邮件地址。",
+              "type": "string"
+            },
+            "author_ip": {
+              "required": false,
+              "description": "对象作者的IP地址。",
+              "type": "string"
+            },
+            "author_name": {
+              "required": false,
+              "description": "对象作者的显示名。",
+              "type": "string"
+            },
+            "author_url": {
+              "required": false,
+              "description": "对象作者的URL。",
+              "type": "string"
+            },
+            "author_user_agent": {
+              "required": false,
+              "description": "对象作者的用户代理。",
+              "type": "string"
+            },
+            "content": {
+              "required": false,
+              "description": "对象的内容。",
+              "type": "object"
+            },
+            "date": {
+              "required": false,
+              "description": "对象的发布时间，站点时区。",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "对象的发布时间，GMT。",
+              "type": "string"
+            },
+            "parent": {
+              "required": false,
+              "default": 0,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "post": {
+              "required": false,
+              "default": 0,
+              "description": "关联文章对象的ID。",
+              "type": "integer"
+            },
+            "status": {
+              "required": false,
+              "description": "对象的状态。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/comments"
+      }
+    },
+    "/wp/v2/comments/(?P<id>[\\d]+)": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "请求提出的范围，用于决定回应包含的字段。",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "评论所属文章的密码（如果该文章被密码保护）。",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "author": {
+              "required": false,
+              "description": "用户对象的ID，如果作者是用户。",
+              "type": "integer"
+            },
+            "author_email": {
+              "required": false,
+              "description": "对象作者的电子邮件地址。",
+              "type": "string"
+            },
+            "author_ip": {
+              "required": false,
+              "description": "对象作者的IP地址。",
+              "type": "string"
+            },
+            "author_name": {
+              "required": false,
+              "description": "对象作者的显示名。",
+              "type": "string"
+            },
+            "author_url": {
+              "required": false,
+              "description": "对象作者的URL。",
+              "type": "string"
+            },
+            "author_user_agent": {
+              "required": false,
+              "description": "对象作者的用户代理。",
+              "type": "string"
+            },
+            "content": {
+              "required": false,
+              "description": "对象的内容。",
+              "type": "object"
+            },
+            "date": {
+              "required": false,
+              "description": "对象的发布时间，站点时区。",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "对象的发布时间，GMT。",
+              "type": "string"
+            },
+            "parent": {
+              "required": false,
+              "description": "对象的父对象ID。",
+              "type": "integer"
+            },
+            "post": {
+              "required": false,
+              "description": "关联文章对象的ID。",
+              "type": "integer"
+            },
+            "status": {
+              "required": false,
+              "description": "对象的状态。",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "元字段。",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "对象的唯一标识符。",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "是否绕过回收站并强行删除。",
+              "type": "boolean"
+            },
+            "password": {
+              "required": false,
+              "description": "评论所属文章的密码（如果该文章被密码保护）。",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "/wp/v2/settings": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": []
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "title": {
+              "required": false,
+              "description": "站点标题。",
+              "type": "string"
+            },
+            "description": {
+              "required": false,
+              "description": "站点副标题。",
+              "type": "string"
+            },
+            "url": {
+              "required": false,
+              "description": "站点URL。",
+              "type": "string"
+            },
+            "email": {
+              "required": false,
+              "description": "此地址被用作管理用途，如新用户通知。",
+              "type": "string"
+            },
+            "timezone": {
+              "required": false,
+              "description": "和您在同一个时区的城市。",
+              "type": "string"
+            },
+            "date_format": {
+              "required": false,
+              "description": "对所有日期字符串适用的日期格式。",
+              "type": "string"
+            },
+            "time_format": {
+              "required": false,
+              "description": "对所有时间字符串适用的时间格式。",
+              "type": "string"
+            },
+            "start_of_week": {
+              "required": false,
+              "description": "一周从周几开始。",
+              "type": "integer"
+            },
+            "language": {
+              "required": false,
+              "description": "WordPress地区代码。",
+              "type": "string"
+            },
+            "use_smilies": {
+              "required": false,
+              "description": "将表情符号如:-)和:-P转换为图片显示。",
+              "type": "boolean"
+            },
+            "default_category": {
+              "required": false,
+              "description": "默认文章类别。",
+              "type": "integer"
+            },
+            "default_post_format": {
+              "required": false,
+              "description": "默认文章格式。",
+              "type": "string"
+            },
+            "posts_per_page": {
+              "required": false,
+              "description": "最多显示的博客页面数量。",
+              "type": "integer"
+            },
+            "default_ping_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "允许其他博客发送链接通知（pingback和trackback）到新文章。",
+              "type": "string"
+            },
+            "default_comment_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "允许他人在新文章上发表评论。",
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": "http://106.14.124.157/wordpress/wp-json/wp/v2/settings"
+      }
+    }
+  },
+  "_links": {
+    "help": [
+      {
+        "href": "http://v2.wp-api.org/"
+      }
+    ]
+  }
+}
