@@ -30,6 +30,10 @@ npm run test
 ```
 npm run lint
 ```
+### wordpress REST API 文档
+
+See [wordpress REST API 文档](https://github.com/WYBOOM/burden5/blob/master/wordpress%20REST%20API%20%E6%96%87%E6%A1%A3.md).
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
