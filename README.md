@@ -3,11 +3,7 @@
 
 ### 克隆
 ```
-<<<<<<< HEAD
 git clone git@github.com:WYBOOM/burden5.git
-=======
-git clone git clone git@github.com:WYBOOM/burden5.git
->>>>>>> master
 ```
 
 ### 项目依赖安装
