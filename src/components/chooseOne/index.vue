@@ -17,14 +17,43 @@
                    :clickEffect="true"
                    clickMode="push">
     </vue-particles>
-    <div class="img-content"
-         @click="jump('wy')">
-      <el-image :src="this.WYimg.WYimgListContent[Math.floor(Math.random() * (this.WYimg.WYimgListName.length ) )]"
-                fit="fit"></el-image>
-      <!-- <img :src="WYimg.WYimgListContent[0]"
-           alt=""> -->
+    <div class="img-content wy-img-content">
+      <el-image :src="wyImgSrc"
+                @click.native='shouLoginForm'
+                :class="wyImgName"
+                fit="fit">
+      </el-image>
+
+      <transition name="slide-fade">
+        <el-form v-if="wyIsLogin"
+                 ref="wyLoginForm"
+                 :rules="WyRules"
+                 :model="wyFormData">
+          <el-form-item prop="name">
+            <el-input placeholder="账号"
+                      size="small"
+                      :autofocus='true'
+                      v-model="wyFormData.name"
+                      ></el-input>
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input placeholder="密码"
+                      size="small"
+                      @keydown.enter.native='login'
+                      v-model="wyFormData.password"
+                      type="password"></el-input>
+          </el-form-item>
+          <el-button size="small"
+                     @click="login">登录</el-button>
+          <el-button size="small"
+                     @click="jump('wy')">游客登录</el-button>
+        </el-form>
+      </transition>
+
     </div>
-    <el-divider direction="vertical"></el-divider>
+    <el-divider direction="vertical">
+
+    </el-divider>
     <div class="img-content"
          @click="jump('gsc')">
       <el-image src=""
@@ -49,30 +78,91 @@
 // hoverMode: String类型。默认true。可用的hover模式有: "grab", "repulse", "bubble"。
 // clickEffect: 布尔类型。默认true。是否有click特效。
 // clickMode: String类型。默认true。可用的click模式有: "push", "remove", "repulse", "bubble"。
+
+import { login } from "@/api/login";
 export default {
   data () {
     return {
+      /**
+       * wy Data
+       */
       WYimg: {
         WYimgListName: ['chandler.jpg', 'joey1.jpg', 'chandler2.jpg', 'friends1.jpg'],
         WYimgListContent: [],
-        wysrc:''
+        wysrc: ''
       },
-      publicPath: process.env.BASE_URL,
+      wyFormData: {
+        name: '',
+        password: ''
+      },
+      wyIsLogin: false,
+      wyImgName: '',
+      wyImgSrc: '',
+
+      //表单验证规则
+      WyRules: {
+        name: [
+          { required: true, message: '请输入账号', trigger: 'change' },
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'change' }
+        ]
+      }
     }
   },
   created () {
     this.requireImg('/img/wy-img/', this.WYimg.WYimgListName, this.WYimg.WYimgListContent)
+    this.wyImgSrc = this.WYimg.WYimgListContent[Math.floor(Math.random() * (this.WYimg.WYimgListName.length))]
   },
   methods: {
-
     requireImg (Url, imgListName, imgListContennt) {
       imgListName.forEach(element => {
         imgListContennt.push(`${Url}${element}`)
       });
     },
 
-    jump (str) {
+    //展示登录表单
+    shouLoginForm () {
+      if (this.wyIsLogin) {
+        // this.wyImgName = 'toRight'
+      } else {
+        // this.wyImgName = 'toLeft'
+      }
+      this.wyIsLogin = !this.wyIsLogin
+    },
 
+    login () {
+      this.$refs['wyLoginForm'].validate(async (valid) => {
+        if (valid) {
+          let res = await login({
+            username: this.wyFormData.name,
+            password: this.wyFormData.password
+          })
+          if (res.status == 200) {
+            //登录成功
+
+            // 将token传入localstorage用于之后接口验证
+            window.localStorage.setItem('token', res.data.token)
+            this.jump('wy')
+
+          } else {
+            this.$alert(`${res.data.message}`, '错误', {
+              type: 'error',
+              confirmButtonText: '确定',
+              dangerouslyUseHTMLString: true,
+            });
+          }
+
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+
+
+    //url跳转
+    jump (str) {
       switch (str) {
         case 'wy':
           this.$router.push('/wy')
@@ -96,41 +186,70 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
   .particles {
     height: 100%;
     width: 100%;
-    z-index: 0;
+    z-index: 1;
     position: absolute;
+  }
+  .gradient {
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #1a1724;
   }
   .el-divider {
     height: 40vh;
-    margin: 0 200px;
+    margin: 0 5vw;
   }
   .img-content {
     z-index: 10;
-    width: 30vh;
     box-sizing: border-box;
-    height: 30vh;
     border-radius: 5%;
-    min-height: 200px;
-    min-width: 200px;
+
     // 用户禁止选择
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor: pointer;
     .el-image {
-      width: 100%;
-      height: 100%;
+      width: 30vh;
+      height: 30vh;
+      min-height: 200px;
+      min-width: 200px;
       border-radius: inherit;
     }
-    img {
-      width: 100%;
-      height: 100%;
-      color: #b6da73;
+  }
+
+  .wy-img-content {
+    .el-form {
+      position: absolute;
+      left: 15vw;
+      top: 35vh;
+      opacity: 0.7;
+    }
+
+    .slide-fade-enter-active {
+      transition: all 0.3s ease;
+    }
+    .slide-fade-leave-active {
+      transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+      transform: translateX(10px);
+      opacity: 0;
     }
   }
-  .img-content:hover {
+
+  .el-image:hover {
     animation: borderanni 1s;
     animation-fill-mode: forwards;
   }

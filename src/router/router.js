@@ -11,8 +11,14 @@ export const constantRouterMap = [
   },
   {
     path: '/wy',
-    component: () => import('../views/wy'),
-    name: 'wy'
+    component: () => import('../views/layout'),
+    name: 'wy',
+    children: [
+      {
+        path: '/wy',
+        component: () => import('../views/wy')
+      }
+    ]
   },
   {
     path: '/gsc',
