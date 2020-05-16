@@ -32,3 +32,12 @@ export function post_users(data) {
     data
   })
 }
+
+// 获取数据文件
+export function get_DATA(params) {
+  return request({
+    url: `http://www.burden5.online/node.js`,
+    method: 'get',
+    params
+  })
+}

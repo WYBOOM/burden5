@@ -9,10 +9,12 @@ import VueParticles from 'vue-particles'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import HighchartsVue from 'highcharts-vue'
 
 Vue.use(VueParticles)
 
 Vue.use(VueRouter)
+Vue.use(HighchartsVue)
 
 Vue.use(ElementUI)
 

@@ -1,6 +1,6 @@
 <template>
   <div class="wy-content">
-    <wyTitle />
+    <!-- <wyTitle /> -->
     <router-view />
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 import { wyTitle } from "./components";
 export default {
-  components: { wyTitle }
+  // components: { wyTitle }
 }
 </script>
 

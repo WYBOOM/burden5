@@ -46,7 +46,7 @@
           <el-button size="small"
                      @click="login">登录</el-button>
           <el-button size="small"
-                     @click="jump('wy')">游客登录</el-button>
+                     @click="jump('tourist')">游客登录</el-button>
         </el-form>
       </transition>
 
@@ -162,7 +162,8 @@ export default {
 
 
     //url跳转
-    jump (str) {
+   async jump (str) {
+      let res 
       switch (str) {
         case 'wy':
           this.$router.push('/wy')
@@ -170,7 +171,14 @@ export default {
         case 'gsc':
           this.$router.push('/gsc')
           break;
-
+        case 'tourist':
+           res =  await login({
+            username: 'admin',
+            password: 'burden5PW'
+          })
+          window.localStorage.setItem('token', res.data.token)
+          this.$router.push('/wy')
+          break
         default:
           break;
       }
